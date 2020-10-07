@@ -2,6 +2,7 @@
 
 @import 'config';
 @import 'menu';
+@import 'mobile';
 
 * {
   box-sizing: border-box;
@@ -18,20 +19,52 @@ body {
 }
 
 // headings
-
 h1, h2, h3 {
 	margin: 0;
 	font-weight: 400;
 
 	&.lg-heading {
-		font-size: 6rem;
-	}
+    font-size: 6rem;
+  }
 
 	&.sm-heading {
 		margin-bottom: 2rem;
-		padding: 0.2rem 1rem;
-		background: rgba(lighten($primary-color, 2), 0.5);
-	}
+		padding: 1rem 2rem;
+  }
+  
+  &.pr-heading {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+	.ml14 {
+		font-weight: 200;
+		font-size: 3.2em;
+	  }
+	  
+	  .ml14 .text-wrapper {
+		position: relative;
+		display: inline-block;
+		padding-top: 0.1em;
+		padding-right: 0.05em;
+		padding-bottom: 0.15em;
+	  }
+	  
+	  .ml14 .line {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		height: 2px;
+		width: 100%;
+		background-color: #fff;
+		transform-origin: 100% 100%;
+		bottom: 0;
+	  }
+	  
+	  .ml14 .letter {
+		display: inline-block;
+		line-height: 1em;
+	  }
 }
 
 a {
@@ -45,31 +78,59 @@ header {
 	width: 100%;
 }
 
-.text-secondary {
+#text-secondary {
 	color: $secondary-color;
 }
 
 main {
-	padding: 4rem;
+	padding: 3rem;
 	height: 100%;
-
-	.icons {
-		margin-top: 1rem;
-
-		a {
-			padding: 0.4rem;
-
-			&:hover {
-				color: $secondary-color;
-				@include easeOut();
-			}
-		}
-	}
 
 	&#home {
 		overflow: hidden;
 		h1 {
-			margin-top: 10vh;
+			margin-top: 5vh;
 		}
-	}
+  }
+  
+  .logo img {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    height: auto;
+  }
+
+	#slickDiv {
+    margin: auto 0;
+    display: inline-block;
+
+    #project {
+      display: block;
+      position: relative;
+      float: left;
+      top: 2em;
+      padding: 1rem;
+      margin: 0;
+
+      img {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        transition: .2s;
+      }
+
+      img:hover {
+        transform: scale(1.05);
+        color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+  
+  #featuresDiv {
+    display: block;
+    width: 100%;
+    height: 500px;
+  }
+
 }
+

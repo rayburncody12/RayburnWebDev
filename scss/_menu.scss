@@ -49,7 +49,7 @@
 		visibility: visible;
 	}
 
-	&-branding, &-nav {
+	&-branding, &-contact {
 		display: flex;
 		flex-flow: column wrap;
 		align-items: center;
@@ -60,7 +60,8 @@
 		overflow: hidden;
 	}
 
-	&-nav {
+	// Contact Side
+	&-contact {
 		margin: 0;
 		padding: 0;
 		background: darken($primary-color, 5);
@@ -71,6 +72,10 @@
 		&.show {
 			// Slide in from top
 			transform: translate3d(0, 0, 0);
+		}
+
+		li {
+			font-size: 4rem;
 		}
 	}
 
@@ -88,10 +93,30 @@
 		.portrait {
 			width: 250px;
 			height: 250px;
-			background: url(../img/portrait.jpg);
+			background: url(../img/headShot.jpg);
+			background-size: cover;
 			border-radius: 50%;
 			border: solid 3px $secondary-color;
-		}
+      text-align: center;
+      opacity: 1;
+    }
+    
+    .nameDiv {
+      font-size: 3em;
+    }
+
+    .icons {
+      margin-top: 1rem;
+  
+      a {
+        padding: 0.4rem;
+  
+        &:hover {
+          color: $secondary-color;
+          @include easeOut();
+        }
+      }
+    }
 	}
 	
 }

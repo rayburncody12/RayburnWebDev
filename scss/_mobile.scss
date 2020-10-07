@@ -1,0 +1,110 @@
+// Widescreens
+@include mediaXL {
+  main {
+    padding: 4rem;
+  }
+
+  #project {
+    img:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Desktops
+@include mediaLg {
+  main {
+    padding: 4rem;
+  }
+}
+
+// Tablets
+@include mediaMd {
+  main {
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin: 0;
+
+    .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-size: 8vw;
+    }
+
+    .pr-heading {
+      margin-bottom: 0.2rem;
+      padding-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .menu {
+    opacity: 1;
+  }
+
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0;
+
+    &.show {
+      transform: translate3d(0,0,0);
+    }
+  }
+
+  .menu-nav {
+    height: 66vh;
+    transform: translate3d(-100%,0,0); //animate from left side
+    font-size: 24px;
+  }
+
+  .menu-branding {
+    height: 33vh;
+    transform: translate3d(100%,0,0); //animate from right side
+
+    .portrait {
+      background: url(../img/headShot.jpg);
+      background-size: cover;
+      width: 175px;
+      height: 175px;
+      opacity: 1;
+    }
+
+    .icons {
+      float: none;
+    }
+  }
+}
+
+// Smartphones
+@include mediaSm {
+  .menu-btn {
+    top: 15px;
+    right: 15px;;
+  }
+
+  main {
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+    margin: 0;
+
+    &#home {
+      padding: 0.5rem;
+    }
+
+    .logo {
+      padding-top: 3rem;
+    }
+
+    h1.lg-heading {
+      font-size: 15vw;
+    }
+
+    .pr-heading {
+      font-size: 1rem;
+    }
+  }
+}

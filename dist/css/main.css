@@ -28,7 +28,7 @@
   visibility: hidden; }
   .menu.show {
     visibility: visible; }
-  .menu-branding, .menu-nav {
+  .menu-branding, .menu-contact {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -37,15 +37,17 @@
     width: 50%;
     height: 100vh;
     overflow: hidden; }
-  .menu-nav {
+  .menu-contact {
     margin: 0;
     padding: 0;
     background: #10222f;
     list-style: none;
     transform: translate3d(0, -100%, 0);
     transition: all 0.5s ease-out; }
-    .menu-nav.show {
+    .menu-contact.show {
       transform: translate3d(0, 0, 0); }
+    .menu-contact li {
+      font-size: 4rem; }
   .menu-branding {
     background: #173042;
     transform: translate3d(0, 100%, 0);
@@ -55,9 +57,89 @@
     .menu-branding .portrait {
       width: 250px;
       height: 250px;
-      background: url(../img/portrait.jpg);
+      background: url(../img/headShot.jpg);
+      background-size: cover;
       border-radius: 50%;
-      border: solid 3px #7cad3e; }
+      border: solid 3px #7cad3e;
+      text-align: center;
+      opacity: 1; }
+    .menu-branding .nameDiv {
+      font-size: 3em; }
+    .menu-branding .icons {
+      margin-top: 1rem; }
+      .menu-branding .icons a {
+        padding: 0.4rem; }
+        .menu-branding .icons a:hover {
+          color: #7cad3e;
+          transition: all 0.5s ease-out; }
+
+@media screen and (min-width: 1171px) {
+  main {
+    padding: 4rem; }
+  #project img:hover {
+    transform: scale(1.05); } }
+
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  main {
+    padding: 4rem; } }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin: 0; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-size: 8vw; }
+    main .pr-heading {
+      margin-bottom: 0.2rem;
+      padding-top: 0.5rem;
+      font-size: 1.2rem; }
+  .menu {
+    opacity: 1; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 66vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .menu-branding {
+    height: 33vh;
+    transform: translate3d(100%, 0, 0); }
+    .menu-branding .portrait {
+      background: url(../img/headShot.jpg);
+      background-size: cover;
+      width: 175px;
+      height: 175px;
+      opacity: 1; }
+    .menu-branding .icons {
+      float: none; } }
+
+@media screen and (max-width: 500px) {
+  .menu-btn {
+    top: 15px;
+    right: 15px; }
+  main {
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+    margin: 0; }
+    main#home {
+      padding: 0.5rem; }
+    main .logo {
+      padding-top: 3rem; }
+    main h1.lg-heading {
+      font-size: 15vw; }
+    main .pr-heading {
+      font-size: 1rem; } }
 
 * {
   box-sizing: border-box; }
@@ -75,7 +157,7 @@ body {
     background-size: cover; }
     body#bg-img:after {
       content: '';
-      position: absolute;
+      position: fixed;
       top: 0;
       right: 0;
       width: 100%;
@@ -90,8 +172,31 @@ h1, h2, h3 {
     font-size: 6rem; }
   h1.sm-heading, h2.sm-heading, h3.sm-heading {
     margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
-    background: rgba(26, 54, 74, 0.5); }
+    padding: 1rem 2rem; }
+  h1.pr-heading, h2.pr-heading, h3.pr-heading {
+    margin-bottom: 1rem;
+    font-size: 1.5rem; }
+  h1 .ml14, h2 .ml14, h3 .ml14 {
+    font-weight: 200;
+    font-size: 3.2em; }
+  h1 .ml14 .text-wrapper, h2 .ml14 .text-wrapper, h3 .ml14 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em; }
+  h1 .ml14 .line, h2 .ml14 .line, h3 .ml14 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    transform-origin: 100% 100%;
+    bottom: 0; }
+  h1 .ml14 .letter, h2 .ml14 .letter, h3 .ml14 .letter {
+    display: inline-block;
+    line-height: 1em; }
 
 a {
   color: white;
@@ -102,20 +207,40 @@ header {
   z-index: 2;
   width: 100%; }
 
-.text-secondary {
+#text-secondary {
   color: #7cad3e; }
 
 main {
-  padding: 4rem;
+  padding: 3rem;
   height: 100%; }
-  main .icons {
-    margin-top: 1rem; }
-    main .icons a {
-      padding: 0.4rem; }
-      main .icons a:hover {
-        color: #7cad3e;
-        transition: all 0.5s ease-out; }
   main#home {
     overflow: hidden; }
     main#home h1 {
-      margin-top: 10vh; }
+      margin-top: 5vh; }
+  main .logo img {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    height: auto; }
+  main #slickDiv {
+    margin: auto 0;
+    display: inline-block; }
+    main #slickDiv #project {
+      display: block;
+      position: relative;
+      float: left;
+      top: 2em;
+      padding: 1rem;
+      margin: 0; }
+      main #slickDiv #project img {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        transition: .2s; }
+      main #slickDiv #project img:hover {
+        transform: scale(1.05);
+        color: rgba(0, 0, 0, 0.5); }
+  main #featuresDiv {
+    display: block;
+    width: 100%;
+    height: 500px; }
